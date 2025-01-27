@@ -1,0 +1,87 @@
+Soélie's Investigation - Application Utilisateur
+Soélie's Investigation est une application web permettant de gérer des enquêtes et de visualiser les résultats sous forme de graphiques. Les utilisateurs peuvent répondre à des questionnaires et les réponses sont ensuite analysées à l'aide de graphiques interactifs.
+
+Fonctionnalités
+Remplir un formulaire d'enquête avec des informations personnelles (prénom, nom, âge, etc.).
+Visualiser les réponses sous forme de graphiques interactifs grâce à Chart.js.
+Accéder à l'interface d'administration pour voir les réponses soumises.
+Prérequis
+Avant de démarrer l'application, vous devez avoir installé les éléments suivants sur votre machine :
+
+Node.js (version 14 ou supérieure) : Télécharger Node.js
+MongoDB (si vous utilisez MongoDB localement) : Télécharger MongoDB
+MongoDB Compass pour une interface graphique de gestion de votre base de données MongoDB (si nécessaire) : Télécharger MongoDB Compass
+Installation
+Clonez le projet depuis le repository GitHub :
+
+bash
+Copier
+Modifier
+git clone https://votre-repository-url.git
+Accédez au dossier du projet :
+
+bash
+Copier
+Modifier
+cd votre-dossier-de-projet
+Installez les dépendances nécessaires :
+
+bash
+Copier
+Modifier
+npm install
+Créer une version de production (Build)
+Si vous souhaitez créer une version optimisée de l'application pour la production, vous devez d'abord générer le build. Cette étape crée une version prête à être déployée sur un serveur.
+
+Exécutez la commande suivante pour créer le build :
+
+bash
+Copier
+Modifier
+npm run build
+Cela crée un dossier build/ contenant tous les fichiers nécessaires pour le déploiement.
+
+Démarrage du serveur
+Si vous souhaitez tester l'application localement ou la mettre en production, vous pouvez démarrer un serveur local pour servir l'application.
+
+Pour démarrer l'application localement avec le serveur de développement, utilisez :
+
+bash
+Copier
+Modifier
+npm run dev
+L'application sera accessible sur http://localhost:3000.
+
+Si vous souhaitez déployer le build créé dans la commande précédente, vous pouvez utiliser un serveur comme Nginx ou tout autre serveur HTTP pour servir le contenu du dossier build/.
+
+Utilisation de l'application
+1. Soumettre des réponses
+Lorsque vous ouvrez l'application dans votre navigateur, vous verrez un formulaire d'enquête avec les questions suivantes :
+
+Prénom
+Nom
+Âge
+Question 1
+Question 2
+Après avoir répondu au formulaire, les données sont soumises à la base de données MongoDB.
+
+2. Visualiser les résultats
+Une fois que plusieurs utilisateurs ont soumis leurs réponses, vous pouvez consulter les résultats sous forme de graphiques. Ces graphiques sont générés à partir des données de la base de données et permettent une analyse visuelle des réponses.
+
+3. Interface d'administration (si applicable)
+L'application peut également avoir une interface dédiée pour les administrateurs qui permet de visualiser les réponses soumises sous forme tabulaire ou graphique. Cette interface permet d'explorer les résultats plus en détail.
+
+Déploiement
+Si vous souhaitez déployer l'application sur un serveur de production, voici quelques étapes à suivre :
+
+Hébergez la partie backend (si vous en avez un) : Vous devrez déployer votre serveur Node.js sur un service comme Heroku, DigitalOcean, AWS, etc.
+
+Déployez le build : Une fois le build généré, vous pouvez déployer le contenu du dossier build/ sur un serveur web classique comme Nginx, Apache ou un service de déploiement comme Netlify.
+
+Exemple de déploiement sur un serveur Nginx
+Copiez tout le contenu du dossier build/ dans le dossier de votre serveur web (par exemple /var/www/html).
+Configurez votre serveur Nginx pour pointer vers ce dossier et assurez-vous que MongoDB est correctement configuré pour stocker les réponses.
+Support et Contributeurs
+Si vous rencontrez des problèmes avec l'application ou souhaitez contribuer, n'hésitez pas à consulter la documentation et à soumettre une issue sur le repository GitHub du projet.
+
+Cela devrait couvrir la plupart des besoins des utilisateurs finaux qui souhaitent utiliser l'application après avoir exécuté npm run build. N'hésitez pas à personnaliser encore ce fichier selon les spécificités de votre projet ou à me demander des ajustements supplémentaires. 😊
