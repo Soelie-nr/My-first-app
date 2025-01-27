@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulaire Utilisateur</title>
+</head>
+<body>
+  <h1>Formulaire d'Inscription</h1>
+  <form id="user-form">
+    <label for="first-name">Nom :</label>
+    <input type="text" id="first-name" name="first-name" required>
+    <br><br>
+
+    <label for="last-name">Prénom :</label>
+    <input type="text" id="last-name" name="last-name" required>
+    <br><br>
+
+    <label for="age">Âge :</label>
+    <input type="number" id="age" name="age" required>
+    <br><br>
+
+    <label for="question-1">Question 1 : Aimez-vous le sport ?</label>
+    <select id="question-1" name="question-1" required>
+      <option value="Oui">Oui</option>
+      <option value="Non">Non</option>
+    </select>
+    <br><br>
+
+    <label for="question-2">Question 2 : Préférez-vous les chats ou les chiens ?</label>
+    <select id="question-2" name="question-2" required>
+      <option value="Chats">Chats</option>
+      <option value="Chiens">Chiens</option>
+    </select>
+    <br><br>
+
+    <button type="submit">Soumettre</button>
+  </form>
+
+  <script>
+    document.getElementById("user-form").addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const payload = {
+        firstName: document.getElementById("first-name").value,
+        lastName: document.getElementById("last-name").value,
+        age: parseInt(document.getElementById("age").value),
+        question1: document.getElementById("question-1").value,
+        question2: document.getElementById("question-2").value,
+      };
+
+      // Envoi au serveur
+      const response = await fetch("http://localhost:3000/submit-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+      alert(result.message);
+    });
+  </script>
+</body>
+</html>

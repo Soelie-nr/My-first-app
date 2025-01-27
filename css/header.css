@@ -1,0 +1,244 @@
+/* ===== HEADER STYLES ===== */
+
+
+/* Configuration principale du header */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-size: 100%;
+    backdrop-filter: blur(5px);
+  
+    
+  }
+  header.hidden {
+    top: -100%;
+  }
+  
+  header.transparent {
+    background-image: none; 
+  }
+  
+  header.solid {
+    transition: opacity 1s ease-in-out;
+    background-color: rgba(194, 196, 232, 0.445);;
+  }
+  
+  
+  
+  
+  /* ===== BOUTONS DU HEADER ===== */
+  /* Conteneur des boutons */
+  
+  .buttonheader {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  /* Variables pour le style des boutons */
+  .button--pen {
+    --main_color: #4d4d4d;
+    --sub_color1: #FFF;
+    --sub_color2: #e9b800;
+    --base_color: #e9b800;
+    --border_radius1: 60px 60px 40px 40px / 48px 48px 30px 30px;
+    --border_radius2: 70px 70px 40px 40px / 48px 48px 30px 30px;
+    --border_radius3: 40px 40px 40px 40px / 48px 48px 30px 30px;
+  }
+  
+  /* Style de base des boutons */
+  .button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(33.33% - 20px);
+    height: 50px;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: solid 3px #000;
+    border-radius: 40px;
+    background: var(--main_color);
+    font-family: 'Fredoka One', cursive;
+    margin: 0;
+    transition: all 0.3s ease;
+  }
+  
+  /* Wrapper interne du bouton */
+  .button__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  /* Texte du bouton */
+  .button__text {
+    position: relative;
+    z-index: 3;
+    font-size: 32px;
+    letter-spacing: 4px;
+    color: var(--base_color);
+    transition: all 0.3s ease;
+  }
+  
+  /* ===== ANIMATION DES CARACTÈRES ===== */
+  /* Boîte contenant les caractères animés */
+  .characterBox {
+    position: absolute;
+    top: -54px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 180px;
+    height: 56px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Style des caractères individuels */
+  .character {
+    position: relative;
+    width: 56px;
+    height: 36px;
+    box-sizing: border-box;
+    border: solid 3px #000;
+    background: var(--main_color);
+    border-radius: var(--border_radius1);
+    animation: sleep 3s ease-in-out infinite alternate;
+    transition: all 0.3s ease;
+  }
+  
+  /* Visage des caractères */
+  .character__face {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 12px;
+    height: 6px;
+    background: var(--sub_color2);
+    border-radius: 50% 50% 50% 50% / 78% 78% 22% 22%;
+    transition: all 0.3s ease;
+  }
+  
+  /* Yeux des caractères */
+  .character__face::before,
+  .character__face::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    width: 8px;
+    height: 2px;
+    border-radius: 4px;
+    background: #000;
+    transition: all 0.3s ease;
+  }
+  
+  /* Positions des yeux */
+  .character__face::before {
+    left: -5px;
+  }
+  
+  .character__face::after {
+    right: -5px;
+  }
+  
+  /* Second visage des caractères */
+  .charactor__face2 {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 30px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    animation: face_pen 3s ease-in-out infinite alternate;
+    transition: all 0.3s ease;
+  }
+  
+  /* ===== ANIMATIONS ===== */
+  /* Animation de sommeil */
+  @keyframes sleep {
+    0% {
+      height: 36px;
+      border-radius: var(--border_radius1);
+    }
+    100% {
+      height: 32px;
+      border-radius: var(--border_radius2);
+    }
+  }
+  
+  /* Animation du visage */
+  @keyframes face_pen {
+    0% {
+      height: 14px;
+    }
+    100% {
+      height: 10px;
+    }
+  }
+  
+  /* Animations au survol */
+  .button:hover .wakeup {
+    animation: wakeup 0.3s ease forwards;
+  }
+  
+  .button:hover .wakeup .character__face {
+    top: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .button:hover .wakeup .character__face::before,
+  .button:hover .wakeup .character__face::after {
+    animation: eye 5s ease-in-out infinite;
+  }
+  
+  /* Animation de réveil */
+  @keyframes wakeup {
+    0% {
+      height: 32px;
+      border-radius: var(--border_radius2);
+    }
+    100% {
+      height: 56px;
+      border-radius: var(--border_radius3);
+    }
+  }
+  
+  /* Animation des yeux */
+  @keyframes eye {
+    0%, 30%, 55%, 90%, 100% {
+      top: -6px;
+      width: 6px;
+      height: 6px;
+    }
+    10%, 40%, 70% {
+      top: -4px;
+      width: 8px;
+      height: 2px;
+    }
+  }

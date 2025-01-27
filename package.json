@@ -1,0 +1,13 @@
+{
+    "name": "enquete",
+    "version": "1.0.0",
+    "description": "Un projet pour gérer un formulaire d'enquête",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "chart.js": "^4.4.7",
+        "mysql2": "^3.12.0"
+    }
+}

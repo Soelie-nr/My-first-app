@@ -1,0 +1,75 @@
+/* ===== FOOTER ===== */
+footer {
+    height: var(100% + 5vh);
+    width: 100%;
+    margin-bottom: auto;
+    margin-top: auto;
+    background-color: #3333331f;
+  }
+  
+  /* Style des éléments du footer */
+  .ElementFooter { 
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Style des liens dans le footer */
+  .ElementFooter a {
+    border-radius: 2.5px;
+    padding-left: 5vh;
+    text-decoration: none;
+    align-items: center;
+    padding-top: auto;
+  }
+  
+  /* Animation au survol des liens du footer */
+  .ElementFooter a:hover {
+    transform: scale(1.1);
+  }
+
+  .general .bouton {
+    width: 100%; /* Assure que le conteneur prend toute la largeur */
+    max-width: 800px; /* Largeur maximale */
+    margin: 0 auto; /* Centrage */
+  }
+  
+  .general .bouton a {
+    display: block; /* Permet de prendre toute la largeur */
+    width: 100%;
+    background-color: #cecece;
+    color: #111;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap; /* Empêche le texte de se diviser */
+    overflow: hidden; /* Cache le débordement */
+    text-overflow: ellipsis; /* Ajoute des points de suspension si trop long */
+    margin-top: 10vh;
+  }
+  
+  .texte_hidden {
+    width: 100%; /* Même largeur que le parent */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    background-color: #f9f9f9;
+    opacity: 0;
+    word-wrap: break-word; /* Coupe les mots trop longs */
+    overflow-wrap: break-word; /* Alternative pour certains navigateurs */
+  }
+  
+  .general .bouton a.active + .texte_hidden {
+    max-height: fit-content; /* Hauteur adaptable */
+    opacity: 1;
+    padding: 15px;
+    border: 1px solid #ddd;
+  }
+  
+  .texte_hidden p, 
+  .texte_hidden li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }

@@ -1,0 +1,24 @@
+# Node.js
+node_modules/
+
+# Fichiers de configuration locaux
+.env
+
+# Fichiers de logs
+*.log
+
+# Répertoires temporaires
+*.tmp
+*.swp
+.DS_Store
+
+# Fichiers de dépendances ou build
+dist/
+build/
+
+# IDEs (Visual Studio Code, etc.)
+.vscode/
+.idea/
+
+# Système d'exploitation
+Thumbs.db
