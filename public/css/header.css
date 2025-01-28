@@ -46,10 +46,11 @@ header {
   
   /* Variables pour le style des boutons */
   .button--pen {
-    --main_color: #4d4d4d;
+    --pinguin_color: #717171;
+    --main_color: #d2b3d1;
     --sub_color1: #FFF;
     --sub_color2: #e9b800;
-    --base_color: #e9b800;
+    --base_color: #111111;
     --border_radius1: 60px 60px 40px 40px / 48px 48px 30px 30px;
     --border_radius2: 70px 70px 40px 40px / 48px 48px 30px 30px;
     --border_radius3: 40px 40px 40px 40px / 48px 48px 30px 30px;
@@ -120,7 +121,7 @@ header {
     height: 36px;
     box-sizing: border-box;
     border: solid 3px #000;
-    background: var(--main_color);
+    background: var(--pinguin_color);
     border-radius: var(--border_radius1);
     animation: sleep 3s ease-in-out infinite alternate;
     transition: all 0.3s ease;

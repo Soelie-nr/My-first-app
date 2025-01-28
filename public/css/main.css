@@ -2,8 +2,7 @@ body {
     margin: auto;
     padding: auto;
     font-family: Arial, sans-serif;
-    background-color:rgb(192, 195, 255);
-    color: #111;
+    background-color:#dbbce2c5;
   }
   
   .backgroundmain {
@@ -14,30 +13,127 @@ body {
   }
 
   .backgroundmain h1 {
-    margin-top: auto  ;
+    margin-top: 15vh;
     font-size: 10rem;
   }
 
   .backgroundmain h2 {
     font-size: 3rem;
-    padding-top: 0;
+    padding-top: 1vh;
+    margin-top: 1vh;
   }
 
-  .start {
+  .avatar {
+    margin-top: 5vh;
+    width: 30vh;
+    height: 30vh;
+    background-image: url(/images/avatar.webp);
+    background-position: center;
+    background-size: contain;
+    border-radius: 50%;
+  }
+
+  .enquetes {
+    display: flex;
+    gap: 5vh; /* permet d'espacer les éléments*/
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 10vh;
+    }
+  
+    /* formaatage des ancres ce sont des réctangles qui s'adaptes selon la taille de l'écran */
+  .enquetes a {
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    width: 35vh;
-    height: 10vh;
-    background:linear-gradient(to bottom, #4588c7 5%, #2a47bd 100%);
-	  border-radius:5vh;
-	  border:5px solid;
-	  cursor:pointer;
-	  font-size:3rem;
-	  text-decoration:none;
+    align-items: center;
+    width: 50vh;
+    height: 50vh;
+    gap: 5vh;
+    background-color: rgb(155, 119, 241);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: rgb(236, 151, 212);
+    border-radius: 5px;
+    font-size: 4rem;
     text-align: center;
-    transition: all 0.5s;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 1px 1px 2px black;
+    text-decoration: none;
+    transition: all 0.5s; /*pour que le hover soit plus fluide*/
   }
-  .start:hover {
+  
+  .enquetes a:hover {
     transform: scale(1.1);
-  }
+    opacity: 0.7;
+    border-radius: 5%;
+   }
+  
+
+/* Questionnaire */
+
+#EVE {
+  display: flex;
+  flex-direction: column;
+  border: #111 solid;
+  border-radius: 5%;
+  padding: 5vh;
+  margin: 30vh;
+  height: fit-content;
+  width: auto;
+}
+
+#EVE h1 {
+  text-align: center;
+}
+
+.formulaire {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column; 
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  outline: none;
+  margin-bottom: 15px;
+}
+.formulaire .ligne {
+  display: flex;
+  flex-direction: column; 
+  gap: 1vh; 
+}
+
+.ligne label {
+  display: flex;
+  align-items: center; 
+  gap: 0.5em;
+}
+
+.soumettre {
+  background: rgb(48,98,190);
+  background: -moz-linear-gradient(90deg, rgba(48,98,190,0.6971580868675595) 0%, rgba(143,19,163,0.3974381989123774) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(48,98,190,0.6971580868675595) 0%, rgba(143,19,163,0.3974381989123774) 100%);
+  background: linear-gradient(90deg, rgba(48,98,190,0.6971580868675595) 0%, rgba(143,19,163,0.3974381989123774) 100%);
+  border-radius: 15%;
+  width: 20vh;
+  height: 10vh;
+  align-self: center;
+  padding: 1vh;
+  margin-top: 2vh;
+  border: none;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  
+}
+
+.soumettre:hover {
+  transform: scale(1.05);
+  background: rgb(143,19,163);
+  background: -moz-linear-gradient(90deg, rgba(143,19,163,0.3974381989123774) 0%, rgba(48,98,190,0.6971580868675595) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(143,19,163,0.3974381989123774) 0%, rgba(48,98,190,0.6971580868675595) 100%);
+  background: linear-gradient(90deg, rgba(143,19,163,0.3974381989123774) 0%, rgba(48,98,190,0.6971580868675595) 100%);
+}

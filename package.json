@@ -1,22 +1,27 @@
 {
-  "name": "enquete",
+  "name": "soelie-investigate",
   "version": "1.0.0",
   "description": "Un projet pour gérer un formulaire d'enquête",
-  "main": "index.js",
+  "main": "serveur.js",
   "scripts": {
     "dev": "node index.js"
   },
   "dependencies": {
     "chart.js": "^4.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mongodb": "^5.0.0"
+    "mongodb": "^5.9.2",
+    "mongoose": "^8.9.5",
+    "nodemon": "^3.1.9",
+    "path": "^0.12.7"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Soelie-nr/My-first-app.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Soélie",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Soelie-nr/My-first-app/issues"
