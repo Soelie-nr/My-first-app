@@ -5,125 +5,151 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Soélie.Nicolas--Robert">
-    <link href="/css/header.css" rel="stylesheet">
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/footer.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <link href="../css/header.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/footer.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon.ico">
     <title>Formulaire</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"/>
   </head>
   <body>
-    <!-- Header start -->
-    <header id="main-header" class="transparent">
-      <div class="buttonheader">
-        <a href="#" class="button button--pen">
-          <div class="button__wrapper">
-            <span class="button__text">Enquêtes</span>
-          </div>
-        </a>
-        <a href="../index.html" class="button button--pen">
-          <div class="button__wrapper">
-            <span class="button__text">Menu</span>
-          </div>
-        </a>
-        <a href="#" class="button button--pen">
-          <div class="button__wrapper">
-            <span class="button__text">Contacts</span>
-          </div>
-        </a>
-      </div>
-    </header>
-    <!-- Header end -->
+   <!-- Header start -->
 
+   <header id="main-header" class="transparent">
+    <div class="buttonheader">
+
+            <!-- Bouton 1 -->
+
+            <a href="#" class="button button--pen">
+                <div class="button__wrapper">
+                    <span class="button__text">Services</span>
+                </div>
+        </a>
+
+          <!-- Bouton 2  -->
+
+          <a href="https://soelie.eu/" class="button button--pen">
+            <div class="button__wrapper">
+                <span class="button__text">Menu</span>
+            </div>
+            <div class="characterBox">
+                <div class="character wakeup">
+                    <div class="character__face"></div>
+                    <div class="charactor__face2"></div>
+                </div>
+                <div class="character wakeup">
+                    <div class="character__face"></div>
+                    <div class="charactor__face2"></div>
+                </div>
+                <div class="character wakeup">
+                    <div class="character__face"></div>
+                    <div class="charactor__face2"></div>
+                </div>
+            </div>
+          </a>
+
+            <!-- Bouton 3 -->
+
+            <a href="#" class="button button--pen">
+                <div class="button__wrapper">
+                    <span class="button__text">Contacts</span>
+                </div>
+            </a>
+
+</header>
+
+<!-- Header end -->
     <!-- Formulaire start -->
-    <form id="EVE">
-      <h1>Formulaire de satisfaction d'EVE online</h1>
-
-      <!-- Prénom -->
-      <div class="formulaire">
-        <label for="prenom">Prénom / Pseudo :</label>
-        <input type="text" id="prenom" name="prenom" required>
+    <form action="http://localhost:3019/submit-Eve" method="POST">
+      <div id="EVE">
+        <h1>Formulaire de satisfaction d'EVE online</h1>
+    
+        <!-- Prénom -->
+        <div class="formulaire">
+          <label for="prenom">Prénom / Pseudo :</label>
+          <input type="text" id="prenom" name="prenom" required>
+        </div>
+    
+        <!-- Nom -->
+        <div class="formulaire">
+          <label for="nom">Nom :</label>
+          <input type="text" id="nom" name="nom">
+        </div>
+    
+        <!-- Nombre d'ALT -->
+        <div class="formulaire">
+          <label for="alt">Nombre d'ALT :</label>
+          <input type="number" min="0" id="alt" name="alt" required>
+        </div>
+    
+        <!-- Depuis combien de temps jouer à EVE online -->
+        <div class="formulaire">
+          <label for="date">Depuis combien de temps jouez-vous à EVE online ? :</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+    
+        <!-- Question-1 -->
+        <div class="formulaire">
+          <label for="question1">
+            <p>1 - As-tu déjà joué à un jeu similaire à EVE Online ?</p>
+            <div class="ligne">
+              <label>
+                <input type="radio" name="question1" value="Yes" required>
+                <span>Yes</span>
+              </label>
+              <label>
+                <input type="radio" name="question1" value="No">
+                <span>No</span>
+              </label>
+            </div>
+          </label>
+        </div>
+    
+        <!-- Question-2 -->
+        <div class="formulaire">
+          <label for="question2">2 - Quel est l'un des points positifs d'EVE selon toi ?</label>
+          <textarea id="question2" name="question2" rows="5" cols="33" maxlength="500" placeholder="500 caractères maximum" required></textarea>
+        </div>
+    
+        <!-- Question-3 -->
+        <div class="formulaire">
+          <label for="question3">3 - Quel est l'un des points négatifs d'EVE selon toi ?</label>
+          <textarea id="question3" name="question3" rows="5" cols="33" maxlength="500" placeholder="500 caractères maximum" required></textarea>
+        </div>
+    
+        <!-- Question-4 -->
+        <div class="formulaire">
+          <label for="question4">4 - Que changerais-tu en premier dans EVE online ?</label>
+          <textarea id="question4" name="question4" rows="5" cols="33" maxlength="500" placeholder="500 caractères maximum" required></textarea>
+        </div>
+    
+        <!-- Question-5 -->
+        <div class="formulaire">
+          <label for="question5">5 - Es-tu satisfait du jeu actuel ?</label>
+          <label for="question5">
+            <input type="range" id="question5" name="question5" min="0" max="10" value="5" step="1" required>
+            <output name="rating1" id="rating1">5</output>/10
+          </label>
+        </div>
+    
+        <!-- Question-6 -->
+        <div class="formulaire">
+          <label for="question6">6 - Que changerais-tu en premier dans EVE online ?</label>
+          <textarea id="question6" name="question6" rows="5" cols="33" maxlength="500" placeholder="500 caractères maximum" required></textarea>
+        </div>
+    
+        <!-- Question-7 -->
+        <div class="formulaire">
+          <label for="question7">7 - À quel prix aimerais-tu que le plex soit ?</label>
+          <label for="question7">
+            <input type="range" id="question7" name="question7" min="0" max="10" value="1" step="1" required>
+            <output name="rating2" id="rating2">1</output> M / ISK
+          </label>
+        </div>
+    
+        <button class="soumettre" type="submit">Envoyer</button>
       </div>
-
-      <!-- Nom -->
-      <div class="formulaire">
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom">
-      </div>
-
-      <!-- Nombre d'ALT -->
-      <div class="formulaire">
-        <label for="alt">Nombre d'ALT :</label>
-        <input type="number" min="0" id="alt" name="alt" required>
-      </div>
-
-      <!-- Depuis combien de temps jouer à EVE online -->
-      <div class="formulaire">
-        <label for="date">Depuis combien de temps jouez-vous à EVE online ? :</label>
-        <input type="date" id="date" name="date" required>
-      </div>
-
-      <!-- Question-1 -->
-      <div class="formulaire">
-        <label for="question-1">
-          <p>1 - As-tu déjà joué à un jeu similaire à EVE Online ?</p>
-          <div class="ligne">
-            <label>
-              <input type="radio" name="question-1" value="Yes" required>
-              <span>Yes</span>
-            </label>
-            <label>
-              <input type="radio" name="question-1" value="No">
-              <span>No</span>
-            </label>
-          </div>
-        </label>
-      </div>
-
-      <!-- Question-2 -->
-      <div class="formulaire">
-        <label for="question-2"> 2 - Quel est l'un des points positifs d'EVE selon toi ?</label>
-        <textarea id="question-2" name="question2" rows="5" cols="33" maxlength="500" placeholder="500 caractères maximum" required></textarea>
-      </div>
-
-      <!-- Question-3 -->
-      <div class="formulaire">
-        <label for="question-3"> 3 - Quel est l'un des points négatifs d'EVE selon toi ?</label>
-        <textarea id="question-3" name="question3" rows="5" cols="33" maxlength="500" placeholder="500 caractères maximum" required></textarea>
-      </div>
-
-      <!-- Question-4 -->
-      <div class="formulaire">
-        <label for="question-4"> 4 - Que changerais-tu en premier dans EVE online ?</label>
-        <textarea id="question-4" name="question4" rows="5" cols="33" maxlength="500" placeholder="500 caractères maximum" required></textarea>
-      </div>
-
-      <!-- Question-5 -->
-      <div class="formulaire">
-        <label for="question-5"> 5 - Es-tu satisfait du jeu actuel ?</label>
-        <label for="question-5">
-          <input type="range" id="range1" name="range1" min="0" max="10" value="5" step="1" required>
-          <output name="rating1" id="rating1">5</output>/10
-        </label>
-      </div>
-
-      <!-- Question-6 -->
-      <div class="formulaire">
-        <label for="question-6"> 6 - Que changerais-tu en premier dans EVE online ?</label>
-        <textarea id="question-6" name="question6" rows="5" cols="33" maxlength="500" placeholder="500 caractères maximum" required></textarea>
-      </div>
-
-      <!-- Question-7 -->
-      <div class="formulaire">
-        <label for="question-7"> 7 - À quel prix aimerais-tu que le plex soit ?</label>
-        <label for="question-7">
-          <input type="range" id="range2" name="range2" min="0" max="10" value="1" step="1" required>
-          <output name="rating2" id="rating2">1</output>M / ISK
-        </label>
-      </div>
-
-      <button class="soumettre" type="submit">Envoyer</button>
-    </form>
+    </form>    
     <!-- Formulaire end -->
 
     <script>
@@ -142,6 +168,6 @@
       updateOutput('range2', 'rating2');
     </script>
 
-<script src="/js/formulaire.js"></script> <!-- Inclusion du fichier JavaScript -->
+<script src="../js/formulaire.js"></script> <!-- Inclusion du fichier JavaScript -->
   </body>
 </html>

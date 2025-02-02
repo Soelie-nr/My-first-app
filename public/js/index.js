@@ -1,76 +1,68 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const header = document.getElementById('main-header');
     let lastScrollTop = 0;
+    let ticking = false;  // Variable pour optimiser le défilement
 
     // Fonction de gestion du défilement
     function checkScroll() {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        // Si l'utilisateur est en haut de la page
-        if (scrollTop === 0) {
-            header.classList.remove('solid');
-            header.classList.add('transparent');
-        } else {
-            header.classList.remove('transparent');
-            header.classList.add('solid');
+                // Si l'utilisateur est en haut de la page
+                if (scrollTop === 0) {
+                    header.classList.remove('solid');
+                    header.classList.add('transparent');
+                } else {
+                    header.classList.remove('transparent');
+                    header.classList.add('solid');
+                }
+
+                // Si on défile vers le bas, cacher le header
+                if (scrollTop > lastScrollTop) {
+                    header.classList.add('hidden');
+                } else {
+                    header.classList.remove('hidden');
+                }
+
+                lastScrollTop = scrollTop;
+                ticking = false;
+            });
+            ticking = true;
         }
-
-        // Si on défile vers le bas, cacher le header
-        if (scrollTop > lastScrollTop) {
-            header.classList.add('hidden');
-        } else {
-            header.classList.remove('hidden');
-        }
-
-        lastScrollTop = scrollTop;
     }
 
+    // Ajouter l'événement de scroll
     window.addEventListener('scroll', checkScroll);
     checkScroll();  // Initialisation de l'état du header
 
-    // --- Partie Inactivité Souris --- 
+    // Timer pour cacher le header après un certain délai d'inactivité
+    let timer;
 
-    let timer;  
-
-function changeHeaderState() {
-    header.classList.remove('solid'); 
-    header.classList.add('hidden'); 
-}
-
-function resetTimer() {
-    clearTimeout(timer);
-
-    // Vérifier si on est en haut de la page
-    if (window.scrollY === 0) {
-        header.classList.add('transparent');
-    } else {
-        header.classList.remove('transparent');
-        timer = setTimeout(changeHeaderState, 3000);
-    if (header.classList.contains('hidden')) {
-        header.classList.remove('hidden');
-        header.classList.add('solid');
-    }
-    }
-}
-
-document.addEventListener('mousemove', resetTimer);
-document.addEventListener('scroll', resetTimer);  // Ajouter un écouteur sur le défilement
-resetTimer();
-
-    // --- Fin Partie Inactivité Souris ---
-
-    // --- Carousel automatique ---
-    let counter = 1;
-    const totalSlides = 4;
-
-    function changeSlide() {
-        document.getElementById('radio' + counter).checked = true;
-        counter = counter % totalSlides + 1;
+    function changeHeaderState() {
+        header.classList.remove('solid');
+        header.classList.add('hidden');
     }
 
-    setInterval(changeSlide, 5000);
+    function resetTimer() {
+        clearTimeout(timer);
+        if (window.scrollY === 0) {
+            header.classList.add('transparent');
+        } else {
+            header.classList.remove('transparent');
+            timer = setTimeout(changeHeaderState, 3000);
+        }
 
-    // --- Scrolling agréable ---
+        if (header.classList.contains('hidden')) {
+            header.classList.remove('hidden');
+            header.classList.add('solid');
+        }
+    }
+
+    document.addEventListener('mousemove', resetTimer);
+    document.addEventListener('scroll', resetTimer);
+    resetTimer();
+
+    // Scrolling agréable (smooth scrolling) pour les liens ancrés
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -80,7 +72,7 @@ resetTimer();
         });
     });
 
-    // --- Chargement lent des images ---
+    // Chargement lent des images (Lazy Loading)
     const images = document.querySelectorAll('img[data-src]');
     const config = {
         rootMargin: '0px 0px 50px 0px',
@@ -105,20 +97,5 @@ resetTimer();
         if (!src) return;
         img.src = src;
     }
-});
 
-// --- Bouton interactif ---
-document.querySelectorAll('.bouton a').forEach(item => {
-    item.addEventListener('click', function() {
-        // ouvrir le bouton
-        this.classList.toggle('active');
-        
-        // pour ouvrir et fermer les bouton 
-        const parentSection = this.closest('.bouton');
-        parentSection.querySelectorAll('a.active').forEach(other => {
-            if (other !== this) {
-                other.classList.remove('active');
-            }
-        });
-    });
 });
